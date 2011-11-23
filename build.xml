@@ -1,0 +1,46 @@
+<project name="page-tagger" default="build_and_deploy" basedir=".">
+	
+	<property name="project.version" value="0.3.7" />
+	
+	<property name="project.deployable.name" value="wordpress-${ant.project.name}-plugin-${project.version}.zip" />
+
+	<property name="project.downloads.dir" value="${basedir}/../../../downloads" />
+
+	<property name="project.deployable.dir" value="${basedir}/deployable" />
+
+
+	<target name="init">
+		<echo message="Create output folders" />
+		<mkdir dir="${project.deployable.dir}" />
+	</target>
+	
+	
+	<target name="build" depends="init">
+		<echo message="Building ${project.deployable.name} package" />
+		<zip destfile="${project.deployable.dir}/${project.deployable.name}">
+			<zipfileset dir="${basedir}" prefix="${ant.project.name}">
+				<include name="COPYING" />
+				<include name="README.txt" />
+				<include name="*.php" />
+				<include name="*.js" />
+			</zipfileset>
+		</zip>		
+	</target>
+
+
+	<target name="clean">
+		<echo message="Clean ${project.deployable.dir}" />
+		<delete dir="${project.deployable.dir}" />
+		<delete dir="${project.docs.dir}" />
+	</target>
+	
+	
+	
+	<target name="build_and_deploy" depends="clean, build"> 
+		<echo message="Deploying ${project.deployable.name} package to ${project.downloads.dir}" />
+		<move file="${project.deployable.dir}/${project.deployable.name}" 
+			todir="${project.downloads.dir}" overwrite="true" />
+	</target>
+	
+	
+</project>
