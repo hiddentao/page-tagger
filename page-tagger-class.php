@@ -71,12 +71,12 @@ class PageTagger
 		wp_localize_script('page-tagger','pageTaggerL10n', 
 				array(
 					'tagsUsed' =>  __('Tags used on this page:'),
-					'addTag' => esc_attr(__('Add new tag')),
+					'addTag' => esc_attr(__('Add New Tag')),
 				)
 		);
 		wp_print_scripts('page-tagger');
 		
-		add_meta_box('tagsdiv-post_tag', 'Tags', array(&$this, 'add_tags_meta_box'), 'page', 'side', 'default');
+		add_meta_box('tagsdiv-post_tag', __('Tags'), array(&$this, 'add_tags_meta_box'), 'page', 'side', 'default');
 	}
 
 	
@@ -145,7 +145,7 @@ class PageTagger
 			<p class="howto"><?php echo $helps; ?></p>
 			<div class="tagchecklist"></div>
 		</div>
-		<p class="tagcloud-link hide-if-no-js"><a href="#titlediv" class="tagcloud-link <?php echo $css; ?>" id="link-<?php echo $tax_name; ?>"><?php printf( __('Choose from the most used tags in %s'), $box['title'] ); ?></a></p>
+		<p class="tagcloud-link hide-if-no-js"><a href="#titlediv" class="tagcloud-link <?php echo $css; ?>" id="link-<?php echo $tax_name; ?>"><?php _e('Choose from the most used tags'); ?></a></p>
 	<?php
 	}
 	
