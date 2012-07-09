@@ -3,7 +3,7 @@
 Contributors: randomaniac
 Tags: tags, tagging, posts, pages
 Requires at least: 2.8.4
-Tested up to: 3.3.2
+Tested up to: 3.4
 Stable tag: 0.4
 
 
@@ -20,6 +20,7 @@ Detailed information including installation and usage is available at http://www
 1. Download and unzip the zip file into your Wordpress `plugins` folder such that the plugin files are at: `wp-content/plugins/page-tagger/...`
 1. Activate the plugin within your blog's administration options.
 1. All done!
+
 
 == Changelog ==
 
