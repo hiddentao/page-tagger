@@ -155,7 +155,7 @@ class PageTagger
 	/**
 	 * Custom version of the Wordpress taxonomy 'update term count' callback method.
 	 *
-	 * This will update term count pased on posts, pages and on custom post types.
+	 * This will update term count passed on posts, pages and on custom post types.
 	 * @param array $terms List of Term taxonomy IDs
 	 */
 	function _update_post_term_count( $terms )
@@ -167,7 +167,7 @@ class PageTagger
             $cptSql = ' OR ' . $cptSql;
 
         foreach ( (array) $terms as $term ) {
-			$count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts WHERE $wpdb->posts.ID = $wpdb->term_relationships.object_id AND $wpdb->posts.post_status='publish' AND (post_type = 'post' OR post_type = 'page' $cptSql) AND term_taxonomy_id = %d", $term ) );
+			$count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts WHERE $wpdb->posts.ID = $wpdb->term_relationships.object_id AND $wpdb->posts.post_status != 'draft' AND (post_type = 'post' OR post_type = 'page' $cptSql) AND term_taxonomy_id = %d", $term ) );
 			$wpdb->update( $wpdb->term_taxonomy, compact( 'count' ), array( 'term_taxonomy_id' => $term ) );
 		}
 	}
