@@ -4,7 +4,7 @@ Contributors: randomaniac
 Tags: tags, tagging, posts, pages
 Requires at least: 2.8.4
 Tested up to: 3.4.1
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 
 
 Page Tagger is a Wordpress plugin which lets you tag your pages just like you do with your posts. It adds a tagging widget in the page-editing view in the admin interface. Page Tagger requires PHP 5.
@@ -23,6 +23,9 @@ Detailed information including installation and usage is available at http://www
 
 
 == Changelog ==
+
+= 0.4.2 (Oct 28, 2012) =
+* Added POT translation file.
 
 = 0.4.1 (Oct 28, 2012) =
 * Fixed global variable overwrite bug (http://wordpress.org/support/topic/plugin-page-tagger-plugin-changes-global-wp_version)
