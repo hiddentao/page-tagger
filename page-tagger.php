@@ -48,8 +48,8 @@ if (5 > intval(phpversion()))
 else
 {
   // if we're at version 3 or above then we can keep it simple using WP hooks:
-  $wp_version = floatval(get_bloginfo('version'));
-  if (3 <= $wp_version)
+  global $wp_version;
+  if (3 <= substr($wp_version,0,1))
   {
     // Based on code by Bjorn Wijers at https://github.com/BjornW/tag-pages
 
